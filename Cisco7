@@ -1,0 +1,27 @@
+#!/usr/bin/ruby -w
+# Cisco password 7 decrypter
+# by CausticKirbyZ #
+
+class String
+  def as_hex
+    "0x" + self.to_s
+  end
+end
+
+def Crackpass(pass)
+  constant = "tdf;kfoA,.iyewrkldJKD"
+  index = (pass[0] + pass[1]).to_i - 1
+  plain = ''
+  puts (pass[0] + pass[1]).to_i
+  i = 2
+
+  while i < pass.length
+    plain += ((pass[i] + pass[i + 1]).as_hex.to_i(16) ^ constant[index].ord).chr
+    index += 1
+    i += 2
+  end
+
+  return plain
+end
+
+puts Crackpass(ARGV[0])
