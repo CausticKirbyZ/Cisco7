@@ -22,6 +22,32 @@ def Crackpass(pass)
   end
 
   return plain
+
 end
 
-puts Crackpass(ARGV[0])
+def help()
+  puts "
+  Syntax: cisco7 <file.txt>
+  "
+end
+
+
+
+
+
+#main logic
+File.open(ARGV[0],'r') do |line|
+  if line =~ /.*password 7.*/i 
+    line.rpartition(' ')[2]
+
+
+
+
+
+    enable password 7 1029384
+
+
+    
+
+
+
